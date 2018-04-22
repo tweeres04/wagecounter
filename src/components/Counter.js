@@ -5,6 +5,7 @@ import _round from 'lodash/round';
 import differenceInSeconds from 'date-fns/difference_in_seconds';
 import dateFormat from 'date-fns/format';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
+import subtractHours from 'date-fns/sub_hours';
 
 function Statistic({ label, value }) {
 	return (
@@ -33,7 +34,10 @@ export default class Counter extends Component {
 	};
 	render() {
 		const { timeElapsed } = this.state;
-		const { wage, totalHours, hoursWorked, startTime, clear } = this.props;
+		const { wage, totalHours, hoursWorked, clear } = this.props;
+		let { startTime } = this.props;
+
+		startTime = subtractHours(startTime, hoursWorked);
 
 		const maxEarned = wage * totalHours;
 		const totalWorked = hoursWorked + timeElapsed / 3600;
