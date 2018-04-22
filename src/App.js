@@ -47,20 +47,22 @@ class App extends Component {
 						clear={this.clear}
 					/>
 				) : null}
-				<div className="footer">
-					<div className="container has-text-centered">
-						<div>&copy; 2018 Tweeres Software</div>
-						<div>
-							Icon by{' '}
-							<a
-								href="https://www.flaticon.com/authors/smashicons"
-								title="Smashicons"
-							>
-								Smashicons
-							</a>
+				{view != 'loading' && (
+					<div className="footer">
+						<div className="container has-text-centered">
+							<div>&copy; 2018 Tweeres Software</div>
+							<div>
+								Icon by{' '}
+								<a
+									href="https://www.flaticon.com/authors/smashicons"
+									title="Smashicons"
+								>
+									Smashicons
+								</a>
+							</div>
 						</div>
 					</div>
-				</div>
+				)}
 			</div>
 		);
 	}
