@@ -45,6 +45,8 @@ export default class Counter extends Component {
 			totalWorked > totalHours
 				? maxEarned
 				: _round(totalWorked * wage, 2);
+		const hoursToGo =
+			totalWorked > totalHours ? 0 : _round(totalHours - totalWorked, 2);
 
 		return (
 			<section className="hero is-primary is-bold is-fullheight counter">
@@ -68,10 +70,7 @@ export default class Counter extends Component {
 						<div className="columns is-multiline is-mobile is-centered">
 							<Statistic label="Wage" value={`$${wage}/hr`} />
 							<Statistic label="Total Hours" value={totalHours} />
-							<Statistic
-								label="Hours to Go"
-								value={_round(totalHours - totalWorked, 2)}
-							/>
+							<Statistic label="Hours to Go" value={hoursToGo} />
 							<Statistic
 								label="Start Time"
 								value={dateFormat(startTime, 'h:mm a')}
